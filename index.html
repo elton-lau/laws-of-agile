@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="A curated collection of heuristic principles, categorized by The Three Ways of DevOps." />
+    <meta name="author" content="Elton Lau & Terry Ng" />
+    <meta property="og:title" content="Laws of Agile" />
+    <meta property="og:description" content="A curated collection of heuristic principles, categorized by The Three Ways of DevOps." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Laws of Agile" />
+    
+    <title>Laws of Agile</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "var(--color-primary)",
+              "background-light": "#FFFFFF",
+              "background-dark": "#0F172A",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+              'lg': '8px',
+            },
+            typography: (theme) => ({
+              DEFAULT: {
+                css: {
+                  color: theme('colors.slate.600'),
+                  a: {
+                    color: theme('colors.primary'),
+                    '&:hover': {
+                      color: theme('colors.blue.700'),
+                    },
+                  },
+                  h1: { fontFamily: 'Inter, sans-serif', fontWeight: '900', color: theme('colors.slate.900') },
+                  h2: { fontFamily: 'Inter, sans-serif', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.05em', color: theme('colors.slate.900') },
+                  h3: { fontFamily: 'Inter, sans-serif', fontWeight: '700', color: theme('colors.slate.900') },
+                  'strong': { color: theme('colors.slate.900') },
+                },
+              },
+              dark: {
+                css: {
+                  color: theme('colors.slate.400'),
+                  a: {
+                    color: theme('colors.blue.400'),
+                    '&:hover': {
+                      color: theme('colors.blue.300'),
+                    },
+                  },
+                  h1: { color: theme('colors.white') },
+                  h2: { color: theme('colors.white') },
+                  h3: { color: theme('colors.white') },
+                  'strong': { color: theme('colors.white') },
+                },
+              },
+            }),
+          },
+        },
+      };
+    </script>
+    <style>
+        :root {
+            --color-primary: #0000FF;
+        }
+        .dark {
+            --color-primary: #60A5FA;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-markdown": "https://esm.sh/react-markdown@9.0.1",
+    "js-yaml": "https://esm.sh/js-yaml@4.1.0"
+  }
+}
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300 flex flex-col">
+    <div id="root" class="flex flex-col min-h-screen w-full"></div>
+</body>
+</html>
