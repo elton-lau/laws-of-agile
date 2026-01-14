@@ -1,6 +1,5 @@
-import { Category, Law, Way, Contributor } from './types';
-import { lawsContent } from './content/laws';
-import { parseLaw } from './utils/markdown';
+import { Category, Way, Contributor } from './types';
+import { allLaws } from 'content-collections';
 
 export const categories: Category[] = [
   {
@@ -23,8 +22,7 @@ export const categories: Category[] = [
   }
 ];
 
-// Parse the content collection
-export const laws: Law[] = lawsContent.map(markdown => parseLaw(markdown));
+export const laws = allLaws.sort((a, b) => a.id.localeCompare(b.id));
 
 export const ways: Way[] = [
   {

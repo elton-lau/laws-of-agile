@@ -21,6 +21,9 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "content-collections": [
+        "./.content-collections/generated"
       ]
     },
     "allowImportingTsExtensions": true,

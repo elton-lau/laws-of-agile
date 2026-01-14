@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Content Collections generated files
+.content-collections
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
