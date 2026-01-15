@@ -152,7 +152,9 @@ See the [content format](content/laws/) for examples.
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](LICENSE).
+
+[![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ---
 
