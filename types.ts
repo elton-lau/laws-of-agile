@@ -1,7 +1,3 @@
-// Author: Senior Frontend Engineer
-// OS support: Mac/Linux/Windows
-// Description: Type definitions for the application
-
 export interface Law {
   id: string;
   name: string;
@@ -66,4 +62,3 @@ export interface Contributor {
   initials: string;
   socials: SocialLink[];
 }
-// --- End of types.ts ---

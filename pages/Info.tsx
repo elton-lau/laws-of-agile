@@ -1,7 +1,3 @@
-// Author: Senior Frontend Engineer
-// OS support: Mac/Linux/Windows
-// Description: Info/About page component
-
 import React from 'react';
 import { ways, contributors } from '../data';
 import WayItem from '../components/WayItem';
@@ -75,4 +71,3 @@ const Info: React.FC = () => {
 };
 
 export default Info;
-// --- End of pages/Info.tsx ---

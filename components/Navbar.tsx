@@ -1,7 +1,3 @@
-// Author: Senior Frontend Engineer
-// OS support: Mac/Linux/Windows
-// Description: Navigation bar component with mobile menu
-
 import React, { useState } from 'react';
 import { useNavigation } from '../App';
 import NavButton from './NavButton';
@@ -111,4 +107,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-// --- End of components/Navbar.tsx ---

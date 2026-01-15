@@ -1,7 +1,3 @@
-// Author: Senior Frontend Engineer
-// OS support: Mac/Linux/Windows
-// Description: Main App component with URL-based Routing and Theme context
-
 import React, { useState, useEffect, createContext, useContext, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -115,4 +111,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-// --- End of App.tsx ---

@@ -1,7 +1,3 @@
-// Author: Senior Frontend Engineer
-// OS support: Mac/Linux/Windows
-// Description: Home page with sticky mobile navigation for sections
-
 import React, { useState, useEffect } from 'react';
 import { categories, laws } from '../data';
 import { useNavigation } from '../App';
@@ -124,4 +120,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-// --- End of pages/Home.tsx ---
