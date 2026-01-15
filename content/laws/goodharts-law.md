@@ -13,6 +13,8 @@ takeaways:
     content: If you measure developers by lines of code, they will write verbose code.
   - title: Holistic Metrics
     content: Use a balanced set of metrics to prevent over-optimization of one at the expense of others.
+  - title: "Gilb's Law (Counterpoint)"
+    content: "\"Anything you need to quantify can be measured in some way that is superior to not measuring it at all.\" — Tom Gilb. Despite the risks of gaming, measurement remains valuable; the key is choosing the right metrics and interpreting them wisely."
 relatedLaws: 
   - campbells-law
 resources:

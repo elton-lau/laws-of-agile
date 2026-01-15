@@ -60,5 +60,61 @@ export default {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    function ({ addBase, theme }) {
+      addBase({
+        '::selection': {
+          backgroundColor: theme('colors.primary'),
+          color: '#ffffff',
+        },
+        '.dark ::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark strong::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark b::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark em::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark i::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark a::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark h1::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark h2::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark h3::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark h4::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark h5::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+        '.dark h6::selection': {
+          backgroundColor: '#60A5FA',
+          color: '#0F172A !important',
+        },
+      });
+    },
   ],
 }
