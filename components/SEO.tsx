@@ -1,51 +1,67 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
+const SITE_URL = 'https://lawsofagile.com';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 interface SEOProps {
   title: string;
   description?: string;
   keywords?: string[];
+  path?: string;
+  ogImage?: string;
+  article?: {
+    author?: string;
+    publishedTime?: string;
+  };
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
-  useEffect(() => {
-    // Update Title
-    document.title = title;
+const SEO: React.FC<SEOProps> = ({ 
+  title, 
+  description, 
+  keywords,
+  path = '',
+  ogImage = DEFAULT_OG_IMAGE,
+  article
+}) => {
+  const canonicalUrl = `${SITE_URL}${path}`;
+  const defaultDescription = 'A curated collection of heuristic principles for software engineering, categorized by The Three Ways of DevOps.';
+  const metaDescription = description || defaultDescription;
 
-    // Helper to update or create meta tags
-    const updateMeta = (selector: string, attribute: string, content: string) => {
-      let element = document.querySelector(selector);
-      if (!element) {
-        element = document.createElement('meta');
-        
-        // Parse selector to set attributes (simple version for name/property)
-        if (selector.includes('[name=')) {
-           const name = selector.match(/name="([^"]+)"/)?.[1];
-           if (name) element.setAttribute('name', name);
-        } else if (selector.includes('[property=')) {
-           const property = selector.match(/property="([^"]+)"/)?.[1];
-           if (property) element.setAttribute('property', property);
-        }
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={metaDescription} />
+      {keywords && keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(', ')} />
+      )}
+      
+      <link rel="canonical" href={canonicalUrl} />
 
-        document.head.appendChild(element);
-      }
-      element.setAttribute(attribute, content);
-    };
+      <meta property="og:type" content={article ? 'article' : 'website'} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="Laws of Agile" />
+      <meta property="og:locale" content="en_US" />
 
-    if (description) {
-      updateMeta('meta[name="description"]', 'content', description);
-      updateMeta('meta[property="og:description"]', 'content', description);
-    }
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={canonicalUrl} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={ogImage} />
 
-    if (keywords && keywords.length > 0) {
-      updateMeta('meta[name="keywords"]', 'content', keywords.join(', '));
-    }
-
-    updateMeta('meta[property="og:title"]', 'content', title);
-    updateMeta('meta[property="og:url"]', 'content', window.location.href);
-
-  }, [title, description, keywords]);
-
-  return null;
+      {article?.author && (
+        <meta property="article:author" content={article.author} />
+      )}
+      {article?.publishedTime && (
+        <meta property="article:published_time" content={article.publishedTime} />
+      )}
+    </Helmet>
+  );
 };
 
 export default SEO;

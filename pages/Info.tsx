@@ -14,6 +14,7 @@ const Info: React.FC = () => {
       <SEO 
         title="About - Laws of Agile" 
         description="About the Laws of Agile project, the Three Ways of DevOps, and contributors."
+        path="/info"
       />
       <div className="mb-24 md:mb-32">
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-slate-900 dark:text-white leading-none transition-colors duration-300">

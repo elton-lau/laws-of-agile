@@ -7,6 +7,7 @@ import { categories, laws } from '../data';
 import { useNavigation } from '../App';
 import LawCard from '../components/LawCard';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 
 const Home: React.FC = () => {
   const { navigateTo } = useNavigation();
@@ -64,7 +65,9 @@ const Home: React.FC = () => {
         title="Laws of Agile" 
         description="A curated collection of heuristic principles for software engineering, categorized by The Three Ways of DevOps: Flow, Feedback, and Continual Learning."
         keywords={["Agile", "DevOps", "Laws", "Heuristics", "Software Engineering", "Little's Law", "Conway's Law"]}
+        path="/"
       />
+      <StructuredData type="website" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         {/* Sidebar / Sticky Header */}
         <div className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-40 space-y-8">

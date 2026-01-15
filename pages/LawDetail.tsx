@@ -6,6 +6,7 @@ import Icon from '../components/Icon';
 import ResourceCard from '../components/ResourceCard';
 import RelatedLawRow from '../components/RelatedLawRow';
 import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 
 interface LawDetailProps {
   lawId: string;
@@ -18,7 +19,7 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
   if (!law) {
     return (
       <>
-        <SEO title="Law Not Found - Laws of Agile" />
+        <SEO title="Law Not Found - Laws of Agile" path="/404" />
         <div className="p-20 text-center">Law not found</div>
       </>
     );
@@ -37,6 +38,18 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
         title={`${law.name} - Laws of Agile`}
         description={law.summary}
         keywords={[law.name, "Agile Law", "Heuristic", law.category]}
+        path={`/laws/${law.id}`}
+        article={{
+          author: law.origin.author
+        }}
+      />
+      <StructuredData type="article" law={law} />
+      <StructuredData 
+        type="breadcrumb" 
+        items={[
+          { name: 'Home', url: 'https://lawsofagile.com/' },
+          { name: law.name, url: `https://lawsofagile.com/laws/${law.id}` }
+        ]} 
       />
       {/* Hero Section */}
       <div className="mb-24 md:mb-32">

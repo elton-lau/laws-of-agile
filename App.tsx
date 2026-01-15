@@ -1,6 +1,6 @@
 // Author: Senior Frontend Engineer
 // OS support: Mac/Linux/Windows
-// Description: Main App component with Routing and Theme context
+// Description: Main App component with URL-based Routing and Theme context
 
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import Navbar from './components/Navbar';
@@ -8,8 +8,38 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Info from './pages/Info';
 import LawDetail from './pages/LawDetail';
-import Icon from './components/Icon';
 import { Route, NavigationContextType } from './types';
+
+const parsePathToRoute = (pathname: string): Route => {
+  const path = pathname.replace(/\/$/, '') || '/';
+  
+  if (path === '/' || path === '') {
+    return { page: 'home' };
+  }
+  if (path === '/info') {
+    return { page: 'info' };
+  }
+  if (path.startsWith('/laws/')) {
+    const lawId = path.replace('/laws/', '');
+    if (lawId) {
+      return { page: 'law', lawId };
+    }
+  }
+  return { page: 'home' };
+};
+
+const routeToPath = (route: Route): string => {
+  switch (route.page) {
+    case 'home':
+      return '/';
+    case 'info':
+      return '/info';
+    case 'law':
+      return `/laws/${route.lawId}`;
+    default:
+      return '/';
+  }
+};
 
 // Simple Router Context
 export const NavigationContext = createContext<NavigationContextType>({
@@ -22,8 +52,19 @@ export const NavigationContext = createContext<NavigationContextType>({
 export const useNavigation = () => useContext(NavigationContext);
 
 const App: React.FC = () => {
-  const [currentRoute, setCurrentRoute] = useState<Route>({ page: 'home' });
+  const [currentRoute, setCurrentRoute] = useState<Route>(() => 
+    parsePathToRoute(window.location.pathname)
+  );
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentRoute(parsePathToRoute(window.location.pathname));
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useEffect(() => {
     // Check system preference or default to false
@@ -45,8 +86,12 @@ const App: React.FC = () => {
   };
 
   const navigateTo = (route: Route) => {
-    window.scrollTo(0, 0);
+    const newPath = routeToPath(route);
+    if (window.location.pathname !== newPath) {
+      window.history.pushState({}, '', newPath);
+    }
     setCurrentRoute(route);
+    window.scrollTo(0, 0);
   };
 
   return (

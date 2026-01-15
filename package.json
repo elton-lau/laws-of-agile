@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "node scripts/generate-sitemap.js && vite build",
+    "preview": "vite preview",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "react-helmet-async": "^2.0.5",
     "react-markdown": "9.0.1"
   },
   "devDependencies": {
