@@ -1,0 +1,11 @@
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="24" height="24" rx="4" fill="#0f172a"/>
+  <!-- Upward arrow (momentum/agility) -->
+  <path d="M12 2L5.5 14L6.5 14.5L12 12L17.5 14.5L18.5 14L12 2Z" fill="white"/>
+  <!-- Water wave 1 -->
+  <path d="M2 17 Q5 15, 8 17 Q11 19, 14 17 Q17 15, 20 17 Q22 18, 22 17" 
+        stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Water wave 2 (lower, subtle) -->
+  <path d="M2 20 Q5 18, 8 20 Q11 22, 14 20 Q17 18, 20 20 Q22 21, 22 20" 
+        stroke="white" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+</svg>

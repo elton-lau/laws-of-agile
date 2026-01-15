@@ -2,13 +2,16 @@
 // OS support: Mac/Linux/Windows
 // Description: Main App component with URL-based Routing and Theme context
 
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, { useState, useEffect, createContext, useContext, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Info from './pages/Info';
-import LawDetail from './pages/LawDetail';
+import LoadingSpinner from './components/LoadingSpinner';
 import { Route, NavigationContextType } from './types';
+
+// Lazy load pages for better initial performance
+const Home = lazy(() => import('./pages/Home'));
+const Info = lazy(() => import('./pages/Info'));
+const LawDetail = lazy(() => import('./pages/LawDetail'));
 
 const parsePathToRoute = (pathname: string): Route => {
   const path = pathname.replace(/\/$/, '') || '/';
@@ -99,9 +102,11 @@ const App: React.FC = () => {
       <Navbar />
       
       <main className="flex-grow w-full">
-        {currentRoute.page === 'home' && <Home />}
-        {currentRoute.page === 'info' && <Info />}
-        {currentRoute.page === 'law' && currentRoute.lawId && <LawDetail lawId={currentRoute.lawId} />}
+        <Suspense fallback={<LoadingSpinner />}>
+          {currentRoute.page === 'home' && <Home />}
+          {currentRoute.page === 'info' && <Info />}
+          {currentRoute.page === 'law' && currentRoute.lawId && <LawDetail lawId={currentRoute.lawId} />}
+        </Suspense>
       </main>
 
       <Footer />
