@@ -1,62 +1,161 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <img width="1200" height="475" alt="Laws of Agile Banner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+<p align="center">
+  <strong>A curated collection of heuristic principles for software engineering, organized by The Three Ways of DevOps.</strong>
+</p>
 
-This contains everything you need to run your app locally.
+<p align="center">
+  <a href="https://lawsofagile.com">View Live Site</a> •
+  <a href="#the-laws">Explore Laws</a> •
+  <a href="#contributing">Contribute</a>
+</p>
 
-View your app in AI Studio: https://ai.studio/apps/drive/1PQwRYmyl8IXv6RAsLU3oJaxtMZf3H0IZ
+---
 
-## Run Locally
+> *"In the complex world of DevOps and Agile, it's easy to get lost in tooling and frameworks. These laws bring focus back to the fundamental dynamics of systems and people."*
 
-**Prerequisites:**  Node.js
+---
 
-1. Install dependencies:
-   `npm install`
-2. Run the app:
-   `npm run dev`
+## Why Laws of Agile?
+
+Software delivery is governed by invisible forces—organizational dynamics, human psychology, and systems theory. While not strict physical laws, these observations provide a powerful lens to understand why agile transformations succeed or fail.
+
+By understanding the forces at play within complex systems, we can:
+- **Make better decisions** about team structure and architecture
+- **Design more resilient organizations** that adapt to change
+- **Foster environments** where innovation flows naturally
+
+## The Laws
+
+Organized by **The Three Ways of DevOps**:
+
+### 🌊 The First Way: Flow
+*Optimizing the speed of value delivery from idea to customer.*
+
+| Law | Summary |
+|-----|---------|
+| **Little's Law** | Lead time = WIP ÷ Throughput |
+| **Theory of Constraints** | A system is only as fast as its bottleneck |
+| **Brooks's Law** | Adding people to a late project makes it later |
+| **Parkinson's Law** | Work expands to fill the time available |
+
+### 🔄 The Second Way: Feedback
+*Creating fast loops of information from right to left.*
+
+| Law | Summary |
+|-----|---------|
+| **Conway's Law** | Systems mirror communication structures |
+| **Goodhart's Law** | When a measure becomes a target, it ceases to be useful |
+| **Linus's Law** | Given enough eyeballs, all bugs are shallow |
+
+### 🧠 The Third Way: Continual Learning
+*Fostering a culture of experimentation and mastery.*
+
+| Law | Summary |
+|-----|---------|
+| **Gall's Law** | Complex systems evolve from simple ones |
+| **Occam's Razor** | The simplest explanation is usually correct |
+| **Hofstadter's Law** | It always takes longer than you expect |
+
+[**→ View all laws on the website**](https://lawsofagile.com)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+
+### Run Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The app will be available at `http://localhost:3000`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+Output is generated in the `dist/` directory.
+
+---
 
 ## Deployment
 
-### Cloudflare Pages
+This project is configured for **Cloudflare Pages** with automated CI/CD via GitHub Actions.
 
-This project is configured for automated deployment to [Cloudflare Pages](https://pages.cloudflare.com/) via GitHub Actions.
+### Automatic Deployment
 
-#### Prerequisites
+Push to `main` branch triggers automatic deployment.
 
-1. **Cloudflare Account**: You need a Cloudflare account.
-2. **GitHub Repository**: Push this project to a GitHub repository.
+**Required GitHub Secrets:**
 
-#### Setup Secrets
+| Secret | Description |
+|--------|-------------|
+| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare Account ID |
+| `CLOUDFLARE_API_TOKEN` | API Token with Pages permissions |
 
-To enable the CI/CD pipeline, add the following [Repository Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) to your GitHub repository (`Settings` > `Secrets and variables` > `Actions`):
-
-| Secret Name | Description | How to get it |
-|-------------|-------------|---------------|
-| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare Account ID | Dashboard > Workers & Pages > Overview (Right sidebar) |
-| `CLOUDFLARE_API_TOKEN` | API Token with Pages permissions | Dashboard > My Profile > API Tokens > Create Token > Use "Edit Cloudflare Workers" template |
-
-#### Manual Deployment
-
-You can also deploy manually using Wrangler CLI:
+### Manual Deployment
 
 ```bash
-# Install Wrangler globally
 npm install -g wrangler
-
-# Login to Cloudflare
 wrangler login
-
-# Build the project
 npm run build
-
-# Deploy to Pages
 wrangler pages deploy dist --project-name=laws-of-agile
 ```
 
-### Static Build Details
+---
 
-- **Output Directory**: `dist/`
-- **Routing**: `public/_redirects` ensures all routes fall back to `index.html` (SPA routing)
-- **Sitemap**: Generated automatically during build via `scripts/generate-sitemap.js`
+## Contributing
+
+Want to add a new law or improve an existing one?
+
+1. Fork the repository
+2. Add your law in `content/laws/` as a Markdown file
+3. Submit a pull request
+
+See the [content format](content/laws/) for examples.
+
+---
+
+## Tech Stack
+
+- **React 19** + **TypeScript**
+- **Vite 6** for blazing fast builds
+- **Tailwind CSS 3** for styling
+- **Content Collections** for law content management
+- **Cloudflare Pages** for hosting
+
+---
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><strong>Elton Lau</strong><br/><a href="https://github.com/elton-lau">GitHub</a> · <a href="https://www.linkedin.com/in/elton-lau/">LinkedIn</a></td>
+    <td align="center"><strong>Terry Ng</strong><br/><a href="https://www.linkedin.com/in/terrynch/">LinkedIn</a></td>
+  </tr>
+</table>
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<p align="center">
+  <sub>Built with ❤️ for the DevOps and Agile community</sub>
+</p>
