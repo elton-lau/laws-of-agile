@@ -1,5 +1,0 @@
-name = "laws-of-agile"
-compatibility_date = "2024-01-01"
-
-# Cloudflare Pages configuration
-pages_build_output_dir = "dist"
