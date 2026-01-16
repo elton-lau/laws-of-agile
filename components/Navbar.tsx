@@ -22,9 +22,9 @@ const Navbar: React.FC = () => {
         >
           <div className="w-9 h-9 md:w-10 md:h-10 bg-slate-900 dark:bg-white rounded-lg md:rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300 shrink-0">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white dark:text-slate-900 w-5 h-5 md:w-6 md:h-6">
-              <path d="M12 2L5.5 14L6.5 14.5L12 12L17.5 14.5L18.5 14L12 2Z" fill="currentColor"/>
-              <path d="M2 17 Q5 15, 8 17 Q11 19, 14 17 Q17 15, 20 17 Q22 18, 22 17" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-              <path d="M2 20 Q5 18, 8 20 Q11 22, 14 20 Q17 18, 20 20 Q22 21, 22 20" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.5"/>
+              <path d="M12 2L5.5 14L6.5 14.5L12 12L17.5 14.5L18.5 14L12 2Z" fill="currentColor" />
+              <path d="M2 17 Q5 15, 8 17 Q11 19, 14 17 Q17 15, 20 17 Q22 18, 22 17" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+              <path d="M2 20 Q5 18, 8 20 Q11 22, 14 20 Q17 18, 20 20 Q22 21, 22 20" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.5" />
             </svg>
           </div>
           <span className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight text-slate-900 dark:text-white transition-colors truncate">
@@ -40,12 +40,12 @@ const Navbar: React.FC = () => {
             <NavButton onClick={() => navigateTo({ page: 'info' })}>
               About
             </NavButton>
-            <NavButton>
+            {/* <NavButton>
               Articles
-            </NavButton>
-            <a 
-              href="https://github.com/elton-lau/laws-of-agile" 
-              target="_blank" 
+            </NavButton> */}
+            <a
+              href="https://github.com/elton-lau/laws-of-agile"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-slate-100 hover:text-primary transition-colors"
             >
@@ -86,15 +86,15 @@ const Navbar: React.FC = () => {
           >
             About
           </button>
-          <button 
+          <button
             onClick={() => handleNavClick()}
             className="text-3xl font-black tracking-tight text-slate-900 dark:text-white hover:text-primary transition-colors"
           >
             Article
           </button>
-          <a 
-            href="https://github.com/elton-lau/laws-of-agile" 
-            target="_blank" 
+          <a
+            href="https://github.com/elton-lau/laws-of-agile"
+            target="_blank"
             rel="noopener noreferrer"
             className="text-xl font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mt-8 hover:text-primary transition-colors"
           >

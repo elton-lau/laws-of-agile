@@ -79,7 +79,7 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
         {/* Overview (Markdown Body) */}
         <section>
           <h2 className="text-3xl font-black uppercase tracking-tight mb-8 text-slate-900 dark:text-white transition-colors duration-300">Overview</h2>
-          <div className="text-xl leading-relaxed font-light text-slate-600 dark:text-slate-300 transition-colors duration-300 markdown-body">
+          <div className="text-xl leading-relaxed font-light text-slate-600 dark:text-slate-300 transition-colors duration-300 markdown-body [&_strong]:text-slate-900 [&_strong]:dark:text-white [&_strong]:font-semibold">
             <Markdown>{law.description}</Markdown>
           </div>
         </section>
