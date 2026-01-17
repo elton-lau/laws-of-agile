@@ -2,76 +2,84 @@
   <img width="1200" height="475" alt="Laws of Agile Banner" src="public/banner.jpg" />
 </div>
 
+<h1 align="center">Laws of Agile</h1>
+
 <p align="center">
-  <strong>A curated collection of heuristic principles for software engineering, organized by The Three Ways of DevOps.</strong>
+  <strong>Master the invisible forces that govern software delivery.</strong>
 </p>
 
 <p align="center">
-  <a href="https://lawsofagile.com">View Live Site</a> •
-  <a href="#the-laws">Explore Laws</a> •
-  <a href="#contributing">Contribute</a>
+  <a href="https://lawsofagile.com"><img src="https://img.shields.io/badge/🌐_Explore_the_Laws-lawsofagile.com-0066FF?style=for-the-badge" alt="Visit Website" /></a>
+</p>
+
+<p align="center">
+  <a href="https://lawsofagile.com">🌐 Website</a> •
+  <a href="#contributing">🤝 Contribute</a> •
+  <a href="#help-translate-">🌍 Translate</a>
 </p>
 
 ---
 
-> *"In the complex world of DevOps and Agile, it's easy to get lost in tooling and frameworks. These laws bring focus back to the fundamental dynamics of systems and people."*
+<div align="center">
+
+### 21 Laws · 3 Ways of DevOps · Multiple Languages
+
+*From Conway's Law to the Theory of Constraints—understand the timeless principles that shape how teams build software.*
+
+</div>
 
 ---
 
-## Why Laws of Agile?
+## ✨ What is Laws of Agile?
 
-Software delivery is governed by invisible forces—organizational dynamics, human psychology, and systems theory. While not strict physical laws, these observations provide a powerful lens to understand why agile transformations succeed or fail.
+Software delivery isn't just about code—it's governed by invisible forces: **organizational dynamics**, **human psychology**, and **systems theory**. 
 
-By understanding the forces at play within complex systems, we can:
-- **Make better decisions** about team structure and architecture
-- **Design more resilient organizations** that adapt to change
-- **Foster environments** where innovation flows naturally
+**Laws of Agile** is a curated collection of these foundational principles, organized by **The Three Ways of DevOps**:
 
-## The Laws
+| Way | Focus |
+|-----|-------|
+| 🌊 **Flow** | Optimizing the speed of value delivery from idea to customer |
+| 🔄 **Feedback** | Creating fast loops of information to catch problems early |
+| 🧠 **Learning** | Fostering a culture of experimentation and continuous mastery |
 
-Organized by **The Three Ways of DevOps**:
+These aren't strict physical laws, but battle-tested observations that explain why agile transformations succeed or fail.
 
-### 🌊 The First Way: Flow
-*Optimizing the speed of value delivery from idea to customer.*
+<div align="center">
 
-| Law | Summary |
-|-----|---------|
-| **Little's Law** | Lead time = WIP ÷ Throughput |
-| **Theory of Constraints** | A system is only as fast as its bottleneck |
-| **Brooks's Law** | Adding people to a late project makes it later |
-| **Parkinson's Law** | Work expands to fill the time available |
+### 👉 [Explore all 21 laws at lawsofagile.com](https://lawsofagile.com) 👈
 
-### 🔄 The Second Way: Feedback
-*Creating fast loops of information from right to left.*
-
-| Law | Summary |
-|-----|---------|
-| **Conway's Law** | Systems mirror communication structures |
-| **Goodhart's Law** | When a measure becomes a target, it ceases to be useful |
-| **Linus's Law** | Given enough eyeballs, all bugs are shallow |
-
-### 🧠 The Third Way: Continual Learning
-*Fostering a culture of experimentation and mastery.*
-
-| Law | Summary |
-|-----|---------|
-| **Gall's Law** | Complex systems evolve from simple ones |
-| **Occam's Razor** | The simplest explanation is usually correct |
-| **Hofstadter's Law** | It always takes longer than you expect |
-
-[**→ View all laws on the website**](https://lawsofagile.com)
+</div>
 
 ---
 
-## Getting Started
+## 🚀 Why This Matters
 
-### Prerequisites
+By understanding the forces at play within complex systems, you can:
 
-- Node.js 18+
+- 🎯 **Make better decisions** about team structure and software architecture
+- 🏗️ **Design resilient organizations** that adapt to change
+- 💡 **Foster environments** where innovation flows naturally
+- ⚡ **Accelerate delivery** by working with these forces, not against them
 
-### Run Locally
+Whether you're a **tech lead**, **engineering manager**, **Scrum Master**, or **individual contributor**, these principles will sharpen your thinking about how software really gets built.
+
+---
+
+## 💡 Inspiration
+
+This project is inspired by the wonderful [**Laws of UX**](https://lawsofux.com) by Jon Yablonski—a beautifully curated collection of design principles that every designer should know. 
+
+We wanted to create something similar for the **DevOps and Agile community**: a resource that distills timeless wisdom into an accessible, shareable format.
+
+---
+
+## 🛠️ Run Locally
 
 ```bash
+# Clone the repository
+git clone https://github.com/elton-lau/lawsofagile.git
+cd lawsofagile
+
 # Install dependencies
 npm install
 
@@ -79,82 +87,58 @@ npm install
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-Output is generated in the `dist/` directory.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Deployment
+## 🤝 Contributing
 
-This project is configured for **Cloudflare Pages** with automated CI/CD via GitHub Actions.
+We welcome contributions! Here's how you can help:
 
-### Automatic Deployment
-
-Push to `main` branch triggers automatic deployment.
-
-**Required GitHub Secrets:**
-
-| Secret | Description |
-|--------|-------------|
-| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare Account ID |
-| `CLOUDFLARE_API_TOKEN` | API Token with Pages permissions |
-
-### Manual Deployment
-
-```bash
-npm install -g wrangler
-wrangler login
-npm run build
-wrangler pages deploy dist --project-name=laws-of-agile
-```
-
----
-
-## Contributing
-
-Want to add a new law or improve an existing one?
+### Add a New Law
 
 1. Fork the repository
-2. Add your law in `content/laws/` as a Markdown file
-3. Submit a pull request
+2. Create a new Markdown file in `content/laws/`
+3. Follow the [existing format](content/laws/) for structure
+4. Submit a pull request
 
-See the [content format](content/laws/) for examples.
+### Improve Existing Content
 
----
-
-## Help Translate 🌍
-
-We want to make these laws accessible to everyone, regardless of language. The infrastructure for internationalization (i18n) is in place, and we have started with:
-
-- **Spanish (es)**
-- **Traditional Chinese (zh-TW)**
-
-**We need your help!**
-- **Translate existing laws**: Help us complete the translations for Spanish and Chinese.
-- **Add new languages**: Fluent in another language? Please contribute by adding a new locale!
-
-Translations are stored in `content/laws/<locale>/` and `public/locales/<locale>/`.
+Found a typo? Have a better explanation or resource? PRs are welcome!
 
 ---
 
-## Tech Stack
+## 🌍 Help Translate
 
-- **React 19** + **TypeScript**
-- **Vite 6** for blazing fast builds
-- **Tailwind CSS 3** for styling
-- **Content Collections** for law content management
-- **Cloudflare Pages** for hosting
+We want these laws accessible to everyone, regardless of language. The i18n infrastructure is in place with support for:
+
+- 🇬🇧 **English** (complete)
+- 🇪🇸 **Spanish** (in progress)
+- 🇹🇼 **Traditional Chinese** (in progress)
+
+**How to contribute translations:**
+
+1. Add translated law files to `content/laws/<locale>/`
+2. Add UI translations to `public/locales/<locale>/`
+
+Fluent in another language? Help us add a new locale!
 
 ---
 
-## Contributors
+## 🏗️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **React 19** | UI Framework |
+| **TypeScript** | Type Safety |
+| **Vite 6** | Build Tool |
+| **Tailwind CSS 3** | Styling |
+| **Content Collections** | Content Management |
+| **Cloudflare Pages** | Hosting & CDN |
+
+---
+
+## 👥 Contributors
 
 <table>
   <tr>
@@ -165,7 +149,7 @@ Translations are stored in `content/laws/<locale>/` and `public/locales/<locale>
 
 ---
 
-## License
+## 📄 License
 
 This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](LICENSE).
 
@@ -175,4 +159,8 @@ This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 
 
 <p align="center">
   <sub>Built with ❤️ for the DevOps and Agile community</sub>
+</p>
+
+<p align="center">
+  <a href="https://lawsofagile.com"><strong>🌐 Visit lawsofagile.com →</strong></a>
 </p>

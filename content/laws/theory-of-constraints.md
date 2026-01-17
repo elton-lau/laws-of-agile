@@ -11,6 +11,8 @@ origin:
 takeaways:
   - title: Identify the Constraint
     content: Find the single part of the process that limits the rate of the entire system.
+  - title: Five Focusing Steps
+    content: 1. Identify, 2. Exploit, 3. Subordinate everything else, 4. Elevate, 5. Prevent inertia (Repeat).
   - title: Exploit the Constraint
     content: Ensure the bottleneck is always working at full capacity on the highest priority items.
 relatedLaws: 
@@ -28,3 +30,5 @@ resources:
 ---
 
 The Theory of Constraints is a methodology for identifying the most important limiting factor (i.e. constraint) that stands in the way of achieving a goal and then systematically improving that constraint until it is no longer the limiting factor.
+
+A famous illustration from Goldratt's book **"The Goal"** is the boy scout hike, where the troop can only move as fast as the slowest walker, **"Herbie"**. To speed up the troop, they don't yell at the fast walkers to go faster; they lighten Herbie's backpack and put him at the front of the line. In software, "Herbie" is often testing, deployment, or code review—optimizing anything else is a waste.
