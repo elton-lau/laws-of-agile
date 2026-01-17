@@ -3,7 +3,7 @@ id: conways-law
 name: 康威定律
 icon: hub
 summary: 組織設計的系統會反映其溝通結構。
-category: first-way
+category: second-way
 origin:
   author: 梅爾文·康威 (Melvin Conway)
   context: '「委員會如何發明？」(1967)。'
