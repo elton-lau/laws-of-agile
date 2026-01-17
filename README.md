@@ -129,6 +129,21 @@ See the [content format](content/laws/) for examples.
 
 ---
 
+## Help Translate 🌍
+
+We want to make these laws accessible to everyone, regardless of language. The infrastructure for internationalization (i18n) is in place, and we have started with:
+
+- **Spanish (es)**
+- **Traditional Chinese (zh-TW)**
+
+**We need your help!**
+- **Translate existing laws**: Help us complete the translations for Spanish and Chinese.
+- **Add new languages**: Fluent in another language? Please contribute by adding a new locale!
+
+Translations are stored in `content/laws/<locale>/` and `public/locales/<locale>/`.
+
+---
+
 ## Tech Stack
 
 - **React 19** + **TypeScript**
