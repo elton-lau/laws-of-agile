@@ -3,7 +3,7 @@ id: conways-law
 name: Ley de Conway
 icon: hub
 summary: Las organizaciones disenan sistemas que reflejan su estructura de comunicacion.
-category: first-way
+category: second-way
 origin:
   author: Melvin Conway
   context: '"Como Inventan los Comites?" (1967).'

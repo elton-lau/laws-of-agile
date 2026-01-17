@@ -3,7 +3,7 @@ id: conways-law
 name: Conway's Law
 icon: hub
 summary: Organizations design systems that mirror their communication structure.
-category: first-way
+category: second-way
 origin:
   author: Melvin Conway
   context: '"How Do Committees Invent?" (1967).'
