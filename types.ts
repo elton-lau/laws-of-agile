@@ -34,7 +34,7 @@ export interface Category {
 
 export type PageType = 'home' | 'info' | 'law';
 
-export type SupportedLocale = 'en' | 'es';
+export type SupportedLocale = 'en' | 'es' | 'zh-TW';
 
 export interface Route {
   page: PageType;

@@ -1,0 +1,82 @@
+{
+  "common": {
+    "siteName": "敏捷法則",
+    "loading": "載入中...",
+    "notFound": "找不到頁面"
+  },
+  "navbar": {
+    "title": "敏捷法則",
+    "theLaws": "法則",
+    "about": "關於",
+    "articles": "文章",
+    "github": "GitHub",
+    "toggleDarkMode": "切換深色模式",
+    "toggleMenu": "切換選單"
+  },
+  "footer": {
+    "copyright": "敏捷法則",
+    "license": "授權條款：CC BY-SA 4.0"
+  },
+  "home": {
+    "title": "敏捷",
+    "titleHighlight": "法則。",
+    "subtitle": "精選的啟發式原則集合，依據 DevOps 三步工作法分類：流動、回饋與持續學習。"
+  },
+  "categories": {
+    "first-way": {
+      "title": "第一步工作法：流動",
+      "subtitle": "系統思維"
+    },
+    "second-way": {
+      "title": "第二步工作法：回饋",
+      "subtitle": "強化回饋迴路"
+    },
+    "third-way": {
+      "title": "第三步工作法：學習",
+      "subtitle": "實驗與精進"
+    }
+  },
+  "info": {
+    "pageTitle": "關於",
+    "summarySection": "簡介 / 目的",
+    "summaryTitle": "敏捷法則是一個精心策劃的啟發式原則、格言和觀察集合，專為技術領導者和實踐者而設。",
+    "summaryP1": "本資源收集了支配軟體交付、團隊互動和組織動態的基礎「法則」。雖然這些並非嚴格的物理定律，但這些來自組織心理學、電腦科學和系統動力學的觀察，提供了強大的視角來理解敏捷轉型成功或失敗的原因。",
+    "summaryP2": "透過理解複雜系統中運作的力量，我們可以做出更好的決策、設計更具韌性的組織，並培養創新自然流動的環境。",
+    "projectSection": "專案介紹",
+    "projectIntro": "在複雜的 DevOps 和敏捷世界中，很容易迷失在工具和框架之中。本專案旨在將焦點重新帶回系統和人的基本動態。這個集合圍繞 DevOps 的<strong>三步工作法</strong>來組織：",
+    "contributorsSection": "貢獻者"
+  },
+  "ways": {
+    "first": {
+      "title": "第一步工作法：流動",
+      "description": "優化從構想到客戶的價值交付速度。理解限制、減少批量大小並視覺化工作。"
+    },
+    "second": {
+      "title": "第二步工作法：回饋",
+      "description": "建立從右到左的快速資訊迴路。放大回饋信號，在問題還小且修復成本低時就解決它們。"
+    },
+    "third": {
+      "title": "第三步工作法：學習",
+      "description": "培養高度信任、實驗和持續精進的文化。從失敗中學習，而非懲罰失敗。"
+    }
+  },
+  "lawDetail": {
+    "notFound": "找不到此法則",
+    "overview": "概述",
+    "keyTakeaways": "重點摘要",
+    "origin": "起源",
+    "originCoinedBy": "此法則由以下人士提出",
+    "furtherReading": "延伸閱讀",
+    "relatedHeuristics": "相關法則"
+  },
+  "seo": {
+    "homeTitle": "敏捷法則",
+    "homeDescription": "精選的軟體工程啟發式原則集合，依據 DevOps 三步工作法分類：流動、回饋與持續學習。",
+    "infoTitle": "關於 - 敏捷法則",
+    "infoDescription": "關於敏捷法則專案、DevOps 三步工作法與貢獻者。",
+    "notFoundTitle": "找不到法則 - 敏捷法則"
+  },
+  "languageSwitcher": {
+    "label": "語言"
+  }
+}

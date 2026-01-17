@@ -3,23 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { useNavigation } from '../App';
 import NavButton from './NavButton';
 import Icon from './Icon';
-import { Route, SupportedLocale } from '../types';
-import { SUPPORTED_LANGUAGES, LANGUAGE_NAMES } from '../i18n';
+import { Route } from '../types';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
-  const { navigateTo, darkMode, toggleTheme, currentRoute, changeLanguage } = useNavigation();
+  const { navigateTo, darkMode, toggleTheme, currentRoute } = useNavigation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   const handleNavClick = (route?: Route) => {
     if (route) navigateTo(route);
-    setIsMenuOpen(false);
-  };
-
-  const handleLanguageChange = (locale: SupportedLocale) => {
-    changeLanguage(locale);
-    setIsLangMenuOpen(false);
     setIsMenuOpen(false);
   };
 
@@ -60,35 +52,6 @@ const Navbar: React.FC = () => {
             </a>
           </div>
 
-          <div className="relative">
-            <button
-              onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-              className="flex items-center gap-1 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider"
-              aria-label={t('languageSwitcher.label')}
-            >
-              <Icon name="language" className="text-xl" />
-              <span className="hidden sm:inline">{currentRoute.locale.toUpperCase()}</span>
-            </button>
-            
-            {isLangMenuOpen && (
-              <div className="absolute right-0 mt-2 py-2 w-32 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 z-50">
-                {SUPPORTED_LANGUAGES.map((lang) => (
-                  <button
-                    key={lang}
-                    onClick={() => handleLanguageChange(lang)}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ${
-                      currentRoute.locale === lang 
-                        ? 'text-primary font-bold' 
-                        : 'text-slate-700 dark:text-slate-300'
-                    }`}
-                  >
-                    {LANGUAGE_NAMES[lang]}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-900 dark:text-white"
@@ -121,22 +84,6 @@ const Navbar: React.FC = () => {
           >
             {t('navbar.about')}
           </button>
-          
-          <div className="flex gap-4 mt-4">
-            {SUPPORTED_LANGUAGES.map((lang) => (
-              <button
-                key={lang}
-                onClick={() => handleLanguageChange(lang)}
-                className={`px-4 py-2 rounded-lg text-lg font-bold transition-colors ${
-                  currentRoute.locale === lang
-                    ? 'bg-primary text-white'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
-                }`}
-              >
-                {LANGUAGE_NAMES[lang]}
-              </button>
-            ))}
-          </div>
           
           <a
             href="https://github.com/elton-lau/laws-of-agile"

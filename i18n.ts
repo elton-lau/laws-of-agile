@@ -3,13 +3,14 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpBackend from 'i18next-http-backend';
 
-export const SUPPORTED_LANGUAGES = ['en', 'es'] as const;
+export const SUPPORTED_LANGUAGES = ['en', 'es', 'zh-TW'] as const;
 export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number];
 export const DEFAULT_LANGUAGE: SupportedLanguage = 'en';
 
 export const LANGUAGE_NAMES: Record<SupportedLanguage, string> = {
   en: 'English',
   es: 'Espanol',
+  'zh-TW': '繁體中文',
 };
 
 i18n
