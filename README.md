@@ -32,7 +32,9 @@
 
 ## ✨ What is Laws of Agile?
 
-Software delivery isn't just about code—it's governed by invisible forces: **software engineering**, **psychology**, and **system dynamics**. 
+This resource collects the underlying "laws" that govern software delivery, team interactions, and organizational dynamics. While not strict physical laws, these observations—captured by organization psychology, software engineering, and systems dynamics—provide a powerful lens to understand why agile transformations succeed or fail.
+
+By understanding the forces at play within complex systems, we can make better decisions, design more resilient organizations, and foster environments where innovation flows naturally.
 
 **Laws of Agile** is a curated collection of these foundational principles, organized by **The Three Ways of DevOps**:
 
@@ -41,8 +43,6 @@ Software delivery isn't just about code—it's governed by invisible forces: **s
 | 🌊 **Flow** | Optimizing the speed of value delivery from idea to customer |
 | 🔄 **Feedback** | Creating fast loops of information to catch problems early |
 | 🧠 **Learning** | Fostering a culture of experimentation and continuous mastery |
-
-These aren't strict physical laws, but battle-tested observations that explain why agile transformations succeed or fail.
 
 <div align="center">
 
