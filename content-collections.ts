@@ -4,7 +4,7 @@ import { z } from "zod";
 const laws = defineCollection({
   name: "laws",
   directory: "content/laws",
-  include: "*.md",
+  include: "**/*.md",
   schema: z.object({
     id: z.string(),
     name: z.string(),
@@ -36,9 +36,15 @@ const laws = defineCollection({
       .optional(),
   }),
   transform: (document) => {
+    const pathParts = document._meta.filePath.split('/');
+    const locale = pathParts.length > 1 ? pathParts[0] : 'en';
+    const slug = document.id;
+    
     return {
       ...document,
       description: document.content,
+      locale,
+      slug,
     };
   },
 });

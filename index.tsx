@@ -1,8 +1,10 @@
 import './index.css';
-import React from 'react';
+import './i18n';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
+import LoadingSpinner from './components/LoadingSpinner';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -12,8 +14,10 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
+    <Suspense fallback={<LoadingSpinner />}>
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
+    </Suspense>
   </React.StrictMode>
 );

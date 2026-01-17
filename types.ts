@@ -34,9 +34,12 @@ export interface Category {
 
 export type PageType = 'home' | 'info' | 'law';
 
+export type SupportedLocale = 'en' | 'es';
+
 export interface Route {
   page: PageType;
   lawId?: string;
+  locale: SupportedLocale;
 }
 
 export interface NavigationContextType {
@@ -44,6 +47,7 @@ export interface NavigationContextType {
   navigateTo: (route: Route) => void;
   darkMode: boolean;
   toggleTheme: () => void;
+  changeLanguage: (locale: SupportedLocale) => void;
 }
 
 export interface Way {

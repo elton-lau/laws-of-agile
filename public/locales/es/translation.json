@@ -1,0 +1,82 @@
+{
+  "common": {
+    "siteName": "Leyes de Agile",
+    "loading": "Cargando...",
+    "notFound": "No encontrado"
+  },
+  "navbar": {
+    "title": "Leyes de Agile",
+    "theLaws": "Las Leyes",
+    "about": "Acerca de",
+    "articles": "Articulos",
+    "github": "GitHub",
+    "toggleDarkMode": "Cambiar modo oscuro",
+    "toggleMenu": "Abrir menu"
+  },
+  "footer": {
+    "copyright": "Leyes de Agile",
+    "license": "Licencia: CC BY-SA 4.0"
+  },
+  "home": {
+    "title": "Las Leyes",
+    "titleHighlight": "de Agile.",
+    "subtitle": "Una coleccion curada de principios heuristicos, categorizados por Las Tres Vias de DevOps: Flujo, Retroalimentacion y Aprendizaje Continuo."
+  },
+  "categories": {
+    "first-way": {
+      "title": "La Primera Via: Flujo",
+      "subtitle": "Pensamiento Sistemico"
+    },
+    "second-way": {
+      "title": "La Segunda Via: Retroalimentacion",
+      "subtitle": "Amplificar Ciclos de Retroalimentacion"
+    },
+    "third-way": {
+      "title": "La Tercera Via: Aprendizaje",
+      "subtitle": "Experimentacion y Maestria"
+    }
+  },
+  "info": {
+    "pageTitle": "Acerca de",
+    "summarySection": "Resumen / Proposito",
+    "summaryTitle": "Leyes de Agile es una coleccion curada de principios heuristicos, maximas y observaciones para lideres tecnicos y practicantes.",
+    "summaryP1": "Este recurso recopila las \"leyes\" subyacentes que gobiernan la entrega de software, las interacciones de equipo y las dinamicas organizacionales. Aunque no son leyes fisicas estrictas, estas observaciones—capturadas por la psicologia organizacional, la ciencia de la computacion y la dinamica de sistemas—proporcionan una lente poderosa para entender por que las transformaciones agiles tienen exito o fracasan.",
+    "summaryP2": "Al comprender las fuerzas en juego dentro de sistemas complejos, podemos tomar mejores decisiones, disenar organizaciones mas resilientes y fomentar entornos donde la innovacion fluye naturalmente.",
+    "projectSection": "El Proyecto",
+    "projectIntro": "En el complejo mundo de DevOps y Agile, es facil perderse en herramientas y frameworks. Este proyecto busca volver el enfoque a las dinamicas fundamentales de sistemas y personas. La coleccion esta estructurada alrededor de las <strong>Tres Vias</strong> de DevOps:",
+    "contributorsSection": "Contribuidores"
+  },
+  "ways": {
+    "first": {
+      "title": "La Primera Via: Flujo",
+      "description": "Optimizar la velocidad de entrega de valor desde la idea hasta el cliente. Entender restricciones, reducir tamanos de lote y visualizar el trabajo."
+    },
+    "second": {
+      "title": "La Segunda Via: Retroalimentacion",
+      "description": "Crear ciclos rapidos de informacion de derecha a izquierda. Amplificar senales de retroalimentacion para arreglar problemas cuando son baratos y pequenos."
+    },
+    "third": {
+      "title": "La Tercera Via: Aprendizaje",
+      "description": "Fomentar una cultura de alta confianza, experimentacion y maestria continua. Aprender de los fracasos en lugar de castigarlos."
+    }
+  },
+  "lawDetail": {
+    "notFound": "Ley no encontrada",
+    "overview": "Vision General",
+    "keyTakeaways": "Puntos Clave",
+    "origin": "Origen",
+    "originCoinedBy": "La ley fue acunada por",
+    "furtherReading": "Lectura Adicional",
+    "relatedHeuristics": "Heuristicas Relacionadas"
+  },
+  "seo": {
+    "homeTitle": "Leyes de Agile",
+    "homeDescription": "Una coleccion curada de principios heuristicos para ingenieria de software, categorizados por Las Tres Vias de DevOps: Flujo, Retroalimentacion y Aprendizaje Continuo.",
+    "infoTitle": "Acerca de - Leyes de Agile",
+    "infoDescription": "Acerca del proyecto Leyes de Agile, las Tres Vias de DevOps y contribuidores.",
+    "notFoundTitle": "Ley No Encontrada - Leyes de Agile"
+  },
+  "languageSwitcher": {
+    "label": "Idioma"
+  }
+}

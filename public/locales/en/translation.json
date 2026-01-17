@@ -1,0 +1,82 @@
+{
+  "common": {
+    "siteName": "Laws of Agile",
+    "loading": "Loading...",
+    "notFound": "Not found"
+  },
+  "navbar": {
+    "title": "Laws of Agile",
+    "theLaws": "The Laws",
+    "about": "About",
+    "articles": "Articles",
+    "github": "GitHub",
+    "toggleDarkMode": "Toggle Dark Mode",
+    "toggleMenu": "Toggle Menu"
+  },
+  "footer": {
+    "copyright": "Laws of Agile",
+    "license": "License: CC BY-SA 4.0"
+  },
+  "home": {
+    "title": "The Laws",
+    "titleHighlight": "of Agile.",
+    "subtitle": "A curated collection of heuristic principles, categorized by The Three Ways of DevOps: Flow, Feedback, and Continual Learning."
+  },
+  "categories": {
+    "first-way": {
+      "title": "The First Way: Flow",
+      "subtitle": "System Thinking"
+    },
+    "second-way": {
+      "title": "The Second Way: Feedback",
+      "subtitle": "Amplify Feedback Loops"
+    },
+    "third-way": {
+      "title": "The Third Way: Learning",
+      "subtitle": "Experimentation & Mastery"
+    }
+  },
+  "info": {
+    "pageTitle": "About",
+    "summarySection": "Summary / Purpose",
+    "summaryTitle": "Laws of Agile is a curated collection of heuristic principles, maxims, and observations for tech leaders and practitioners.",
+    "summaryP1": "This resource collects the underlying \"laws\" that govern software delivery, team interactions, and organizational dynamics. While not strict physical laws, these observations—captured by organization psychology, computer science, and systems dynamics—provide a powerful lens to understand why agile transformations succeed or fail.",
+    "summaryP2": "By understanding the forces at play within complex systems, we can make better decisions, design more resilient organizations, and foster environments where innovation flows naturally.",
+    "projectSection": "The Project",
+    "projectIntro": "In the complex world of DevOps and Agile, it's easy to get lost in tooling and frameworks. This project aims to bring focus back to the fundamental dynamics of systems and people. The collection is structured around the <strong>Three Ways</strong> of DevOps:",
+    "contributorsSection": "Contributors"
+  },
+  "ways": {
+    "first": {
+      "title": "The First Way: Flow",
+      "description": "Optimizing the speed of value delivery from idea to customer. Understanding constraints, reducing batch sizes, and visualizing work."
+    },
+    "second": {
+      "title": "The Second Way: Feedback",
+      "description": "Creating fast loops of information from right to left. Amplifying feedback signals to fix problems when they are cheap and small."
+    },
+    "third": {
+      "title": "The Third Way: Learning",
+      "description": "Fostering a culture of high-trust, experimentation, and continuous mastery. Learning from failures rather than punishing them."
+    }
+  },
+  "lawDetail": {
+    "notFound": "Law not found",
+    "overview": "Overview",
+    "keyTakeaways": "Key Takeaways",
+    "origin": "Origin",
+    "originCoinedBy": "The law was coined by",
+    "furtherReading": "Further Reading",
+    "relatedHeuristics": "Related Heuristics"
+  },
+  "seo": {
+    "homeTitle": "Laws of Agile",
+    "homeDescription": "A curated collection of heuristic principles for software engineering, categorized by The Three Ways of DevOps: Flow, Feedback, and Continual Learning.",
+    "infoTitle": "About - Laws of Agile",
+    "infoDescription": "About the Laws of Agile project, the Three Ways of DevOps, and contributors.",
+    "notFoundTitle": "Law Not Found - Laws of Agile"
+  },
+  "languageSwitcher": {
+    "label": "Language"
+  }
+}

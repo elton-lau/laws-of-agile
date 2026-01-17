@@ -1,4 +1,4 @@
-import { Category, Way, Contributor } from './types';
+import { Category, Way, Contributor, SupportedLocale } from './types';
 import { allLaws } from 'content-collections';
 
 export const categories: Category[] = [
@@ -22,7 +22,34 @@ export const categories: Category[] = [
   }
 ];
 
-export const laws = allLaws.sort((a, b) => a.id.localeCompare(b.id));
+const allLawsSorted = allLaws.sort((a, b) => a.id.localeCompare(b.id));
+
+export const laws = allLawsSorted;
+
+export const getLawsByLocale = (locale: SupportedLocale) => {
+  const englishLaws = allLawsSorted.filter(law => law.locale === 'en');
+  
+  return englishLaws.map(enLaw => {
+    const localizedLaw = allLawsSorted.find(
+      law => law.slug === enLaw.slug && law.locale === locale
+    );
+    return localizedLaw || enLaw;
+  });
+};
+
+export const getLawByIdAndLocale = (id: string, locale: SupportedLocale) => {
+  let law = allLawsSorted.find(l => l.slug === id && l.locale === locale);
+  
+  if (!law) {
+    law = allLawsSorted.find(l => l.slug === id && l.locale === 'en');
+  }
+  
+  if (!law) {
+    law = allLawsSorted.find(l => l.id === id);
+  }
+  
+  return law;
+};
 
 export const ways: Way[] = [
   {
