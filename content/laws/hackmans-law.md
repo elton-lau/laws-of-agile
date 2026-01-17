@@ -10,7 +10,7 @@ origin:
   quote: My rule of thumb is no double digits.
 takeaways:
   - title: Cognitive Load
-    content: Large teams increase cognitive load due to the number of communication paths required to stay in sync.
+    content: Large teams increase cognitive load due to the number of communication paths required to stay in sync. Amazon's Two Pizza Rule embodies this—if a team can't be fed by two pizzas, it's too large.
   - title: Social Loafing
     content: In larger groups, individuals often exert less effort than they would alone, a phenomenon known as social loafing.
 relatedLaws: 
