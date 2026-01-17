@@ -40,7 +40,7 @@
     "pageTitle": "About",
     "summarySection": "Summary / Purpose",
     "summaryTitle": "Laws of Agile is a curated collection of heuristic principles, maxims, and observations for tech leaders and practitioners.",
-    "summaryP1": "This resource collects the underlying \"laws\" that govern software delivery, team interactions, and organizational dynamics. While not strict physical laws, these observations—captured by organization psychology, computer science, and systems dynamics—provide a powerful lens to understand why agile transformations succeed or fail.",
+    "summaryP1": "This resource collects the underlying \"laws\" that govern software delivery, team interactions, and organizational dynamics. While not strict physical laws, these observations—captured by organization psychology, software engineering, and systems dynamics—provide a powerful lens to understand why agile transformations succeed or fail.",
     "summaryP2": "By understanding the forces at play within complex systems, we can make better decisions, design more resilient organizations, and foster environments where innovation flows naturally.",
     "projectSection": "The Project",
     "projectIntro": "In the complex world of DevOps and Agile, it's easy to get lost in tooling and frameworks. This project aims to bring focus back to the fundamental dynamics of systems and people. The collection is structured around the <strong>Three Ways</strong> of DevOps:",
