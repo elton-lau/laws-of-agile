@@ -10,6 +10,7 @@ interface SEOProps {
   keywords?: string[];
   path?: string;
   ogImage?: string;
+  locale?: string;
   article?: {
     author?: string;
     publishedTime?: string;
@@ -22,11 +23,14 @@ const SEO: React.FC<SEOProps> = ({
   keywords,
   path = '',
   ogImage = DEFAULT_OG_IMAGE,
+  locale = 'en',
   article
 }) => {
   const canonicalUrl = `${SITE_URL}${path}`;
   const defaultDescription = 'A curated collection of heuristic principles for software engineering, categorized by The Three Ways of DevOps.';
   const metaDescription = description || defaultDescription;
+  const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+  const ogLocale = locale === 'zh-TW' ? 'zh_TW' : 'en_US';
 
   return (
     <Helmet>
@@ -42,17 +46,17 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={fullOgImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="Laws of Agile" />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content={ogLocale} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={canonicalUrl} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={fullOgImage} />
 
       {article?.author && (
         <meta property="article:author" content={article.author} />

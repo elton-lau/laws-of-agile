@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.js && vite build",
+    "build": "node scripts/generate-cards.js && node scripts/generate-sitemap.js && vite build",
     "preview": "vite preview",
+    "generate-cards": "node scripts/generate-cards.js",
     "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@content-collections/core": "^0.13.1",
     "@content-collections/vite": "^0.2.8",
+    "@napi-rs/canvas": "^1.0.10",
     "@tailwindcss/typography": "^0.5.19",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",

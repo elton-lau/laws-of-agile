@@ -23,13 +23,15 @@ function generateSitemap() {
   const staticPages = [
     { loc: '/', changefreq: 'weekly', priority: '1.0' },
     { loc: '/info', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/zh-TW', changefreq: 'weekly', priority: '1.0' },
+    { loc: '/zh-TW/info', changefreq: 'monthly', priority: '0.8' },
   ];
 
-  const lawPages = lawIds.map(id => ({
-    loc: `/laws/${id}`,
-    changefreq: 'monthly',
-    priority: '0.9',
-  }));
+  const lawPages = [];
+  lawIds.forEach((id) => {
+    lawPages.push({ loc: `/laws/${id}`, changefreq: 'monthly', priority: '0.9' });
+    lawPages.push({ loc: `/zh-TW/laws/${id}`, changefreq: 'monthly', priority: '0.9' });
+  });
 
   const allPages = [...staticPages, ...lawPages];
 

@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { useNavigation } from '../App';
 import NavButton from './NavButton';
 import Icon from './Icon';
-import { Route } from '../types';
+import { Route, SupportedLocale } from '../types';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
-  const { navigateTo, darkMode, toggleTheme, currentRoute } = useNavigation();
+  const { navigateTo, darkMode, toggleTheme, currentRoute, changeLanguage } = useNavigation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleNavClick = (route?: Route) => {
@@ -52,6 +52,19 @@ const Navbar: React.FC = () => {
             </a>
           </div>
 
+          <div className="relative flex items-center">
+            <select
+              value={currentRoute.locale}
+              onChange={(e) => changeLanguage(e.target.value as SupportedLocale)}
+              className="appearance-none bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-xs font-bold px-3 py-1.5 pr-7 rounded-lg cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+              aria-label={t('languageSwitcher.label')}
+            >
+              <option value="en">English</option>
+              <option value="zh-TW">繁體中文</option>
+            </select>
+            <Icon name="language" className="absolute right-2 text-sm pointer-events-none text-slate-500 dark:text-slate-400" />
+          </div>
+
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-900 dark:text-white"
@@ -89,10 +102,25 @@ const Navbar: React.FC = () => {
             href="https://github.com/elton-lau/laws-of-agile"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xl font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mt-8 hover:text-primary transition-colors"
+            className="text-xl font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
           >
             {t('navbar.github')}
           </a>
+
+          <div className="flex items-center gap-2 mt-4">
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t('languageSwitcher.label')}:</span>
+            <select
+              value={currentRoute.locale}
+              onChange={(e) => {
+                changeLanguage(e.target.value as SupportedLocale);
+                setIsMenuOpen(false);
+              }}
+              className="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm font-bold px-3 py-2 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="en">English</option>
+              <option value="zh-TW">繁體中文</option>
+            </select>
+          </div>
         </div>
       </div>
     </>
