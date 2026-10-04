@@ -37,13 +37,16 @@ const StructuredData: React.FC<StructuredDataProps> = (props) => {
           }
         };
 
-      case 'article':
+      case 'article': {
+        const articleUrl = props.law.locale && props.law.locale !== 'en'
+          ? `${SITE_URL}/${props.law.locale}/laws/${props.law.id}`
+          : `${SITE_URL}/laws/${props.law.id}`;
         return {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: props.law.name,
           description: props.law.summary,
-          url: `${SITE_URL}/laws/${props.law.id}`,
+          url: articleUrl,
           author: {
             '@type': 'Person',
             name: props.law.origin.author
@@ -55,9 +58,10 @@ const StructuredData: React.FC<StructuredDataProps> = (props) => {
           },
           mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `${SITE_URL}/laws/${props.law.id}`
+            '@id': articleUrl
           }
         };
+      }
 
       case 'breadcrumb':
         return {

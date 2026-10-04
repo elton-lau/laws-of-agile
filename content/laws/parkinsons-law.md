@@ -12,7 +12,7 @@ takeaways:
   - title: Timeboxing
     content: Set strict time limits for tasks to prevent scope creep and ensure focus.
   - title: Student Syndrome
-    content: "Student Syndrome" describes the tendency to delay starting a task until the last possible moment before a deadline, negating any safety buffer.
+    content: '"Student Syndrome" describes the tendency to delay starting a task until the last possible moment before a deadline, negating any safety buffer.'
   - title: Deadlines
     content: Artificial deadlines can be effective in forcing prioritization and decision-making.
 relatedLaws: 

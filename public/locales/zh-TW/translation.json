@@ -78,5 +78,21 @@
   },
   "languageSwitcher": {
     "label": "語言"
+  },
+  "search": {
+    "placeholder": "搜尋法則名稱、關鍵字或主題...",
+    "allCategories": "全部類別",
+    "noResults": "找不到符合搜尋條件的法則。"
+  },
+  "copy": {
+    "copyAsMarkdown": "複製為 Markdown",
+    "copyAsPlainText": "複製為純文字",
+    "copied": "已複製！"
+  },
+  "card": {
+    "downloadCard": "下載卡片",
+    "copyImage": "複製圖片",
+    "imageCopied": "圖片已複製！",
+    "failedToCopy": "無法複製圖片"
   }
 }

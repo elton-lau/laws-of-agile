@@ -78,5 +78,21 @@
   },
   "languageSwitcher": {
     "label": "Language"
+  },
+  "search": {
+    "placeholder": "Search laws, keywords, or topics...",
+    "allCategories": "All Ways",
+    "noResults": "No laws found matching your query."
+  },
+  "copy": {
+    "copyAsMarkdown": "Copy as Markdown",
+    "copyAsPlainText": "Copy as Plain Text",
+    "copied": "Copied!"
+  },
+  "card": {
+    "downloadCard": "Download Card",
+    "copyImage": "Copy Image",
+    "imageCopied": "Image Copied!",
+    "failedToCopy": "Failed to copy image"
   }
 }

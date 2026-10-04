@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-markdown';
 import { getLawByIdAndLocale, getLawsByLocale } from '../data';
@@ -16,6 +16,8 @@ interface LawDetailProps {
 const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
   const { t } = useTranslation();
   const { navigateTo, currentRoute } = useNavigation();
+  const [copiedType, setCopiedType] = useState<'markdown' | 'text' | 'image' | null>(null);
+
   const law = getLawByIdAndLocale(lawId, currentRoute.locale);
   const laws = getLawsByLocale(currentRoute.locale);
   
@@ -34,13 +36,22 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
   const lastName = nameParts.pop();
   const firstName = nameParts.join(' ');
 
+  const pathUrl = currentRoute.locale === 'en'
+    ? `/laws/${law.id}`
+    : `/${currentRoute.locale}/laws/${law.id}`;
+  const cardImage = currentRoute.locale === 'zh-TW'
+    ? `/cards/zh-TW/${law.id}.png`
+    : `/cards/en/${law.id}.png`;
+
   return (
     <div className="max-w-[900px] mx-auto px-6 md:px-12 py-16 md:py-24">
       <SEO 
         title={`${law.name} - ${t('common.siteName')}`}
         description={law.summary}
         keywords={[law.name, "Agile Law", "Heuristic", law.category]}
-        path={`/laws/${law.id}`}
+        path={pathUrl}
+        ogImage={cardImage}
+        locale={currentRoute.locale}
         article={{
           author: law.origin.author
         }}
@@ -49,8 +60,8 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
       <StructuredData 
         type="breadcrumb" 
         items={[
-          { name: 'Home', url: 'https://lawsofagile.com/' },
-          { name: law.name, url: `https://lawsofagile.com/laws/${law.id}` }
+          { name: 'Home', url: `https://lawsofagile.com${currentRoute.locale === 'en' ? '' : `/${currentRoute.locale}`}/` },
+          { name: law.name, url: `https://lawsofagile.com${pathUrl}` }
         ]} 
       />
       <div className="mb-24 md:mb-32">
@@ -73,6 +84,89 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
         <p className="text-2xl md:text-3xl font-bold leading-snug text-slate-800 dark:text-slate-200 max-w-3xl transition-colors duration-300">
           {law.summary}
         </p>
+
+        {/* Action Toolbar: Download Card, Copy Image, Copy Text */}
+        <div className="mt-8 flex flex-wrap items-center gap-3 not-prose">
+          <button
+            onClick={() => {
+              const cardUrl = currentRoute.locale === 'zh-TW'
+                ? `/cards/zh-TW/${law.id}.png`
+                : `/cards/en/${law.id}.png`;
+              const link = document.createElement('a');
+              link.href = cardUrl;
+              link.download = `${law.id}-${currentRoute.locale}.png`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+            className="flex items-center gap-2 px-4 py-2.5 bg-primary hover:bg-blue-600 text-white text-xs font-bold rounded-xl shadow-sm transition-colors duration-200"
+          >
+            <Icon name="download" className="text-sm" />
+            {t('card.downloadCard')}
+          </button>
+
+          <button
+            onClick={async () => {
+              try {
+                const cardUrl = currentRoute.locale === 'zh-TW'
+                  ? `/cards/zh-TW/${law.id}.png`
+                  : `/cards/en/${law.id}.png`;
+                const response = await fetch(cardUrl);
+                const blob = await response.blob();
+                await navigator.clipboard.write([
+                  new ClipboardItem({ [blob.type]: blob })
+                ]);
+                setCopiedType('image');
+                setTimeout(() => setCopiedType(null), 2000);
+              } catch (err) {
+                console.error('Failed to copy image:', err);
+              }
+            }}
+            className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-xl transition-colors duration-200"
+          >
+            <Icon name={copiedType === 'image' ? 'check' : 'image'} className="text-sm text-primary" />
+            {copiedType === 'image' ? t('card.imageCopied') : t('card.copyImage')}
+          </button>
+
+          <button
+            onClick={() => {
+              const localePrefix = currentRoute.locale === 'en' ? '' : `/${currentRoute.locale}`;
+              const sourceUrl = `https://lawsofagile.com${localePrefix}/laws/${law.id}`;
+              const markdownText = `> **${law.name}**: ${law.summary}\n>\n> Source: [${sourceUrl}](${sourceUrl})`;
+              navigator.clipboard.writeText(markdownText);
+              setCopiedType('markdown');
+              setTimeout(() => setCopiedType(null), 2000);
+            }}
+            className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-xl transition-colors duration-200"
+          >
+            <Icon name={copiedType === 'markdown' ? 'check' : 'content_copy'} className="text-sm text-primary" />
+            {copiedType === 'markdown' ? t('copy.copied') : t('copy.copyAsMarkdown')}
+          </button>
+
+          <button
+            onClick={() => {
+              const localePrefix = currentRoute.locale === 'en' ? '' : `/${currentRoute.locale}`;
+              const sourceUrl = `https://lawsofagile.com${localePrefix}/laws/${law.id}`;
+              const plainText = `${law.name}: ${law.summary}\n\nSource: ${sourceUrl}`;
+              navigator.clipboard.writeText(plainText);
+              setCopiedType('text');
+              setTimeout(() => setCopiedType(null), 2000);
+            }}
+            className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-xl transition-colors duration-200"
+          >
+            <Icon name={copiedType === 'text' ? 'check' : 'text_snippet'} className="text-sm text-primary" />
+            {copiedType === 'text' ? t('copy.copied') : t('copy.copyAsPlainText')}
+          </button>
+        </div>
+
+        {/* Card Image Preview Display */}
+        <div className="mt-8 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md">
+          <img
+            src={currentRoute.locale === 'zh-TW' ? `/cards/zh-TW/${law.id}.png` : `/cards/en/${law.id}.png`}
+            alt={`${law.name} Card`}
+            className="w-full h-auto object-cover"
+          />
+        </div>
       </div>
 
       <div className="prose prose-xl prose-slate dark:prose-invert max-w-none space-y-24 transition-colors duration-300">
