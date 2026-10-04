@@ -10,8 +10,21 @@ const Home: React.FC = () => {
   const { t } = useTranslation();
   const { navigateTo, currentRoute } = useNavigation();
   const [activeSection, setActiveSection] = useState(categories[0].id);
+  const [selectedTag, setSelectedTag] = useState<string>('all');
   
   const laws = getLawsByLocale(currentRoute.locale);
+
+  const filterOptions = [
+    { id: 'all', label: t('home.filters.all') },
+    { id: 'delivery-delays', label: t('home.filters.delivery-delays') },
+    { id: 'metric-gaming', label: t('home.filters.metric-gaming') },
+    { id: 'org-friction', label: t('home.filters.org-friction') },
+    { id: 'codebase-rot', label: t('home.filters.codebase-rot') },
+  ];
+
+  const filteredLaws = selectedTag === 'all'
+    ? laws
+    : laws.filter(law => law.tags && law.tags.includes(selectedTag as any));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,7 +50,7 @@ const Home: React.FC = () => {
   }, []);
 
   const getLawsByCategory = (categoryId: string) => {
-    return laws.filter(law => law.category === categoryId);
+    return filteredLaws.filter(law => law.category === categoryId);
   };
 
   const scrollToSection = (e: React.MouseEvent, id: string) => {
@@ -90,30 +103,64 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-8 xl:col-span-9 w-full space-y-24">
+        <div className="lg:col-span-8 xl:col-span-9 w-full space-y-16">
           
-          {categories.map((category) => (
-            <section key={category.id} id={category.id} className="scroll-mt-48 md:scroll-mt-32">
-              <div className="border-b border-slate-200 dark:border-slate-800 pb-6 mb-10 flex items-baseline justify-between transition-colors duration-300">
-                <h2 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
-                  {t(`categories.${category.id}.title`)}
-                </h2>
-                <span className="text-primary font-mono text-sm uppercase tracking-widest hidden sm:inline-block">
-                  {t(`categories.${category.id}.subtitle`)}
-                </span>
+          {/* Pain-Point / Symptom Filter Bar */}
+          <div className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-4 md:p-6 rounded-xl transition-colors duration-300">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <span className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                {t('home.filterLabel')}
+              </span>
+              <div className="flex flex-wrap gap-2" role="group" aria-label={t('home.filterLabel')}>
+                {filterOptions.map((option) => {
+                  const isActive = selectedTag === option.id;
+                  return (
+                    <button
+                      key={option.id}
+                      onClick={() => setSelectedTag(option.id)}
+                      aria-pressed={isActive}
+                      className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary ${
+                        isActive
+                          ? 'bg-primary text-white shadow-sm'
+                          : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary'
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  );
+                })}
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {getLawsByCategory(category.id).map((law) => (
-                  <LawCard 
-                    key={law.id} 
-                    law={law} 
-                    onClick={() => navigateTo({ page: 'law', lawId: law.id, locale: currentRoute.locale })} 
-                  />
-                ))}
-              </div>
-            </section>
-          ))}
+            </div>
+          </div>
+
+          {categories.map((category) => {
+            const categoryLaws = getLawsByCategory(category.id);
+            if (categoryLaws.length === 0 && selectedTag !== 'all') {
+              return null;
+            }
+            return (
+              <section key={category.id} id={category.id} className="scroll-mt-48 md:scroll-mt-32">
+                <div className="border-b border-slate-200 dark:border-slate-800 pb-6 mb-10 flex items-baseline justify-between transition-colors duration-300">
+                  <h2 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
+                    {t(`categories.${category.id}.title`)}
+                  </h2>
+                  <span className="text-primary font-mono text-sm uppercase tracking-widest hidden sm:inline-block">
+                    {t(`categories.${category.id}.subtitle`)}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {categoryLaws.map((law) => (
+                    <LawCard
+                      key={law.id}
+                      law={law}
+                      onClick={() => navigateTo({ page: 'law', lawId: law.id, locale: currentRoute.locale })}
+                    />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       </div>
     </div>

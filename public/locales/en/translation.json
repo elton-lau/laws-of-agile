@@ -9,9 +9,22 @@
     "theLaws": "The Laws",
     "about": "About",
     "articles": "Articles",
+    "retroRoulette": "🎲 Draw for Retro",
     "github": "GitHub",
     "toggleDarkMode": "Toggle Dark Mode",
     "toggleMenu": "Toggle Menu"
+  },
+  "retroRoulette": {
+    "modalTitle": "Retro Roulette",
+    "subtitle": "Random card generator for agile retrospectives",
+    "axiom": "The Axiom",
+    "retroPrompt": "Retro Prompt",
+    "noPrompt": "No prompt available for this law yet.",
+    "copyPrompt": "Copy Prompt",
+    "copied": "Copied!",
+    "drawAnother": "Draw Another",
+    "viewLawDetail": "View Full Law",
+    "close": "Close"
   },
   "footer": {
     "copyright": "Laws of Agile",
@@ -20,7 +33,15 @@
   "home": {
     "title": "The Laws",
     "titleHighlight": "of Agile.",
-    "subtitle": "A curated collection of heuristic principles, categorized by The Three Ways of DevOps: Flow, Feedback, and Continual Learning."
+    "subtitle": "A curated collection of heuristic principles, categorized by The Three Ways of DevOps: Flow, Feedback, and Continual Learning.",
+    "filterLabel": "Filter by Symptom",
+    "filters": {
+      "all": "All",
+      "delivery-delays": "Delivery Delays",
+      "metric-gaming": "Metric Gaming",
+      "org-friction": "Cross-team Friction",
+      "codebase-rot": "Codebase Decay"
+    }
   },
   "categories": {
     "first-way": {
@@ -63,6 +84,12 @@
   "lawDetail": {
     "notFound": "Law not found",
     "overview": "Overview",
+    "axiom": "The Axiom",
+    "pathology": "The Pathology",
+    "defenseScript": "Executive Defense Script",
+    "copyDefenseScript": "Copy Defense Script",
+    "copied": "Copied!",
+    "balancingLaw": "Balancing Law",
     "keyTakeaways": "Key Takeaways",
     "origin": "Origin",
     "originCoinedBy": "The law was coined by",

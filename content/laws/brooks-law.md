@@ -1,9 +1,23 @@
 ---
 id: brooks-law
-name: Brooks's Law
+title: "Brooks' Law"
+name: "Brooks' Law"
 icon: group_add
 summary: Adding manpower to a late software project makes it later.
 category: first-way
+axiom: "Adding manpower to a late software project makes it later."
+pathology: "Management attempts to recover a delayed schedule by throwing more people at the problem, which increases communication overhead and diverts experienced engineers into onboarding."
+defenseScript:
+  executive: "Adding new headcount right now will slow us down further due to onboarding overhead and communication complexity. To hit our deadline, we should reduce scope or protect the team from distractions instead."
+  team: "Protect core focus by streamlining documentation for newcomers while resisting scope creep under pressure."
+balancingLaw:
+  id: "galls-law"
+  name: "Gall's Law"
+  relationshipNote: "Rather than adding people to a complex failing system, simplify to a working baseline first."
+tags:
+  - "delivery-delays"
+  - "org-friction"
+retroPrompt: "Where in our current release pipeline are we adding people or process to solve a delay instead of simplifying the scope or work?"
 origin:
   author: Frederick P. Brooks Jr.
   context: '"The Mythical Man-Month" (1975).'
