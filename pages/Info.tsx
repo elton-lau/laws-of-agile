@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { contributors } from '../data';
 import ContributorCard from '../components/ContributorCard';
 import SEO from '../components/SEO';
@@ -50,10 +50,9 @@ const Info: React.FC = () => {
           <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 sticky top-32">{t('info.projectSection')}</h2>
         </div>
         <div className="lg:col-span-9 xl:col-span-6">
-          <p 
-            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-10 transition-colors duration-300"
-            dangerouslySetInnerHTML={{ __html: t('info.projectIntro') }}
-          />
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-10 transition-colors duration-300">
+            <Trans i18nKey="info.projectIntro" components={{ strong: <strong /> }} />
+          </p>
           <div className="space-y-8">
             {translatedWays.map((way) => (
               <div key={way.key} className="group">
