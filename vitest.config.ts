@@ -4,14 +4,14 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),
-      'content-collections': path.resolve(__dirname, './.content-collections/generated')
-    }
+      'content-collections': path.resolve(__dirname, './.content-collections/generated'),
+    },
   },
-  test: {
-    globals: true,
-    environment: 'jsdom'
-  }
 });
