@@ -9,9 +9,22 @@
     "theLaws": "法則",
     "about": "關於",
     "articles": "文章",
+    "retroRoulette": "🎲 抽卡進行檢討會",
     "github": "GitHub",
     "toggleDarkMode": "切換深色模式",
     "toggleMenu": "切換選單"
+  },
+  "retroRoulette": {
+    "modalTitle": "檢討會輪盤 (Retro Roulette)",
+    "subtitle": "專為敏捷檢討會設計的隨機法則生成器",
+    "axiom": "核心格言",
+    "retroPrompt": "檢討會引導問題",
+    "noPrompt": "此法則尚未提供檢討會引導問題。",
+    "copyPrompt": "複製問題",
+    "copied": "已複製！",
+    "drawAnother": "再抽一張",
+    "viewLawDetail": "檢視完整法則",
+    "close": "關閉"
   },
   "footer": {
     "copyright": "敏捷法則",
@@ -20,7 +33,15 @@
   "home": {
     "title": "敏捷",
     "titleHighlight": "法則。",
-    "subtitle": "精選的啟發式原則集合，依據 DevOps 三步工作法分類：流動、回饋與持續學習。"
+    "subtitle": "精選的啟發式原則集合，依據 DevOps 三步工作法分類：流動、回饋與持續學習。",
+    "filterLabel": "依癥狀篩選",
+    "filters": {
+      "all": "全部",
+      "delivery-delays": "交付延遲",
+      "metric-gaming": "指標鑽營",
+      "org-friction": "跨團隊摩擦",
+      "codebase-rot": "程式碼腐化"
+    }
   },
   "categories": {
     "first-way": {
@@ -63,6 +84,12 @@
   "lawDetail": {
     "notFound": "找不到此法則",
     "overview": "概述",
+    "axiom": "核心格言",
+    "pathology": "組織癥狀",
+    "defenseScript": "管理層應對劇本",
+    "copyDefenseScript": "複製應對劇本",
+    "copied": "已複製！",
+    "balancingLaw": "平衡法則",
     "keyTakeaways": "重點摘要",
     "origin": "起源",
     "originCoinedBy": "此法則由以下人士提出",
