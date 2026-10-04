@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { categories, getLawsByLocale } from '../data';
 import { useNavigation } from '../App';
@@ -12,6 +12,16 @@ const Home: React.FC = () => {
   const [activeSection, setActiveSection] = useState(categories[0].id);
   
   const laws = getLawsByLocale(currentRoute.locale);
+
+  const lawsByCategory = useMemo(() => {
+    return laws.reduce((acc, law) => {
+      if (!acc[law.category]) {
+        acc[law.category] = [];
+      }
+      acc[law.category].push(law);
+      return acc;
+    }, {} as Record<string, typeof laws>);
+  }, [laws]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,10 +45,6 @@ const Home: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  const getLawsByCategory = (categoryId: string) => {
-    return laws.filter(law => law.category === categoryId);
-  };
 
   const scrollToSection = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
@@ -104,7 +110,7 @@ const Home: React.FC = () => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {getLawsByCategory(category.id).map((law) => (
+                {(lawsByCategory[category.id] || []).map((law) => (
                   <LawCard 
                     key={law.id} 
                     law={law} 
