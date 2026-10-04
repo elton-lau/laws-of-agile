@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-markdown';
 import { getLawByIdAndLocale, getLawsByLocale } from '../data';
@@ -28,7 +28,10 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
     );
   }
 
-  const relatedLaws = laws.filter(l => law.relatedLaws.includes(l.id));
+  const relatedLaws = useMemo(
+    () => laws.filter(l => law.relatedLaws.includes(l.id)),
+    [laws, law.relatedLaws]
+  );
 
   const nameParts = law.name.split(' ');
   const lastName = nameParts.pop();
