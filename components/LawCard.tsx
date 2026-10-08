@@ -9,9 +9,10 @@ interface LawCardProps {
 
 const LawCard: React.FC<LawCardProps> = ({ law, onClick }) => {
   return (
-    <div 
+    <button
+      type="button"
       onClick={onClick}
-      className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 aspect-square flex flex-col items-center justify-center text-center hover:border-primary dark:hover:border-primary transition-all duration-300 relative cursor-pointer"
+      className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 aspect-square flex flex-col items-center justify-center text-center hover:border-primary dark:hover:border-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 transition-all duration-300 relative cursor-pointer w-full"
     >
       <div className="flex-grow flex items-center justify-center min-h-0">
         <Icon 
@@ -27,7 +28,7 @@ const LawCard: React.FC<LawCardProps> = ({ law, onClick }) => {
           {law.summary}
         </p>
       </div>
-    </div>
+    </button>
   );
 };
 
