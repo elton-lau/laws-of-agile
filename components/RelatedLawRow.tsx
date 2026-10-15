@@ -9,9 +9,10 @@ interface RelatedLawRowProps {
 
 const RelatedLawRow: React.FC<RelatedLawRowProps> = ({ law, onClick }) => {
   return (
-    <div 
+    <button
+      type="button"
       onClick={onClick}
-      className="group flex items-center gap-6 p-6 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors cursor-pointer"
+      className="group w-full text-left flex items-center gap-6 p-6 hover:bg-slate-50 dark:hover:bg-slate-800/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors cursor-pointer"
     >
       <Icon 
         name={law.icon} 
@@ -25,7 +26,7 @@ const RelatedLawRow: React.FC<RelatedLawRowProps> = ({ law, onClick }) => {
           {law.summary}
         </p>
       </div>
-    </div>
+    </button>
   );
 };
 
