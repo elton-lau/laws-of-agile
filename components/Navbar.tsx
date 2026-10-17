@@ -18,11 +18,13 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav className="w-full py-6 md:py-8 px-6 md:px-8 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300">
-        <div
-          className="flex items-center gap-3 md:gap-4 cursor-pointer group relative z-50"
+        <button
+          type="button"
           onClick={() => handleNavClick({ page: 'home', locale: currentRoute.locale })}
+          className="flex items-center gap-3 md:gap-4 cursor-pointer group relative z-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 text-left"
+          aria-label={t('navbar.title')}
         >
-          <div className="w-9 h-9 md:w-10 md:h-10 bg-slate-900 dark:bg-white rounded-lg md:rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300 shrink-0">
+          <div className="w-9 h-9 md:w-10 md:h-10 bg-slate-900 dark:bg-white rounded-lg md:rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 group-focus-visible:scale-105 transition-transform duration-300 shrink-0">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white dark:text-slate-900 w-5 h-5 md:w-6 md:h-6">
               <path d="M12 2L5.5 14L6.5 14.5L12 12L17.5 14.5L18.5 14L12 2Z" fill="currentColor" />
               <path d="M2 17 Q5 15, 8 17 Q11 19, 14 17 Q17 15, 20 17 Q22 18, 22 17" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
@@ -32,7 +34,7 @@ const Navbar: React.FC = () => {
           <span className="text-lg md:text-xl lg:text-2xl font-bold tracking-tight text-slate-900 dark:text-white transition-colors truncate">
             {t('navbar.title')}
           </span>
-        </div>
+        </button>
 
         <div className="flex items-center gap-4 lg:gap-8 relative z-50">
           <div className="hidden md:flex items-center gap-6 lg:gap-10">
