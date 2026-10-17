@@ -1,6 +1,20 @@
+export type SymptomTag = 'delivery-delays' | 'metric-gaming' | 'org-friction' | 'codebase-rot';
+
+export interface DefenseScript {
+  executive: string;
+  team: string;
+}
+
+export interface BalancingLaw {
+  id: string;
+  name: string;
+  relationshipNote: string;
+}
+
 export interface Law {
   id: string;
   name: string;
+  title?: string;
   icon: string;
   summary: string;
   category: string;
@@ -16,6 +30,14 @@ export interface Law {
   }[];
   relatedLaws: string[]; // IDs of related laws
   resources?: Resource[];
+  axiom?: string;
+  pathology?: string;
+  defenseScript?: DefenseScript;
+  balancingLaw?: BalancingLaw;
+  tags?: SymptomTag[];
+  retroPrompt?: string;
+  slug?: string;
+  locale?: string;
 }
 
 export interface Resource {

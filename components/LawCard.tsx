@@ -26,6 +26,18 @@ const LawCard: React.FC<LawCardProps> = ({ law, onClick }) => {
         <p className="text-base text-slate-500 leading-relaxed dark:text-slate-400 line-clamp-3">
           {law.summary}
         </p>
+        {law.tags && law.tags.length > 0 && (
+          <div className="mt-3 flex flex-wrap justify-center gap-1.5">
+            {law.tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-block px-2 py-0.5 text-[10px] uppercase tracking-wider font-semibold rounded bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+              >
+                {tag.replace('-', ' ')}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

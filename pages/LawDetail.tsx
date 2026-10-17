@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-markdown';
 import { getLawByIdAndLocale, getLawsByLocale } from '../data';
@@ -18,6 +18,15 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
   const { navigateTo, currentRoute } = useNavigation();
   const law = getLawByIdAndLocale(lawId, currentRoute.locale);
   const laws = getLawsByLocale(currentRoute.locale);
+  const [copiedDefense, setCopiedDefense] = useState(false);
+
+  const handleCopyDefenseScript = () => {
+    if (law?.defenseScript?.executive) {
+      navigator.clipboard.writeText(law.defenseScript.executive);
+      setCopiedDefense(true);
+      setTimeout(() => setCopiedDefense(false), 2000);
+    }
+  };
   
   if (!law) {
     return (
@@ -75,8 +84,82 @@ const LawDetail: React.FC<LawDetailProps> = ({ lawId }) => {
         </p>
       </div>
 
-      <div className="prose prose-xl prose-slate dark:prose-invert max-w-none space-y-24 transition-colors duration-300">
+      <div className="prose prose-xl prose-slate dark:prose-invert max-w-none space-y-16 transition-colors duration-300">
         
+        {/* Axiom & Pathology Card */}
+        {law.axiom && (
+          <section className="bg-slate-50 dark:bg-slate-900 border-l-4 border-primary p-8 rounded-r-2xl not-prose space-y-6">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-primary block mb-2">
+                {t('lawDetail.axiom')}
+              </span>
+              <blockquote className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white italic leading-snug">
+                "{law.axiom}"
+              </blockquote>
+            </div>
+
+            {law.pathology && (
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-2">
+                  {t('lawDetail.pathology')}
+                </span>
+                <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                  {law.pathology}
+                </p>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Executive Defense Script */}
+        {law.defenseScript?.executive && (
+          <section className="bg-slate-900 text-white p-8 rounded-2xl not-prose space-y-4 shadow-xl">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-400 flex items-center gap-2">
+                <Icon name="record_voice_over" className="text-lg" />
+                {t('lawDetail.defenseScript')}
+              </span>
+              <button
+                onClick={handleCopyDefenseScript}
+                className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-primary hover:bg-blue-600 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
+              >
+                <Icon name={copiedDefense ? "check" : "content_copy"} className="text-base" />
+                {copiedDefense ? t('lawDetail.copied') : t('lawDetail.copyDefenseScript')}
+              </button>
+            </div>
+            <p className="text-lg md:text-xl font-mono leading-relaxed text-slate-200">
+              "{law.defenseScript.executive}"
+            </p>
+          </section>
+        )}
+
+        {/* Balancing Law Badge/Link */}
+        {law.balancingLaw && (
+          <section className="not-prose bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-primary block mb-1">
+                ⚖️ {t('lawDetail.balancingLaw')}
+              </span>
+              <h3
+                onClick={() => navigateTo({ page: 'law', lawId: law.balancingLaw!.id, locale: currentRoute.locale })}
+                className="text-xl font-bold text-slate-900 dark:text-white hover:text-primary cursor-pointer transition-colors"
+              >
+                {law.balancingLaw.name}
+              </h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                {law.balancingLaw.relationshipNote}
+              </p>
+            </div>
+            <button
+              onClick={() => navigateTo({ page: 'law', lawId: law.balancingLaw!.id, locale: currentRoute.locale })}
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:underline shrink-0"
+            >
+              <span>View Law</span>
+              <Icon name="arrow_forward" className="text-sm" />
+            </button>
+          </section>
+        )}
+
         <section>
           <h2 className="text-3xl font-black uppercase tracking-tight mb-8 text-slate-900 dark:text-white transition-colors duration-300">{t('lawDetail.overview')}</h2>
           <div className="text-xl leading-relaxed font-light text-slate-600 dark:text-slate-300 transition-colors duration-300 markdown-body [&_strong]:text-slate-900 [&_strong]:dark:text-white [&_strong]:font-semibold">

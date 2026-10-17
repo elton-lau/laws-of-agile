@@ -3,12 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { useNavigation } from '../App';
 import NavButton from './NavButton';
 import Icon from './Icon';
+import RetroRouletteModal from './RetroRouletteModal';
 import { Route } from '../types';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const { navigateTo, darkMode, toggleTheme, currentRoute } = useNavigation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isRetroModalOpen, setIsRetroModalOpen] = useState(false);
 
   const handleNavClick = (route?: Route) => {
     if (route) navigateTo(route);
@@ -42,6 +44,12 @@ const Navbar: React.FC = () => {
             <NavButton onClick={() => navigateTo({ page: 'info', locale: currentRoute.locale })}>
               {t('navbar.about')}
             </NavButton>
+            <button
+              onClick={() => setIsRetroModalOpen(true)}
+              className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              {t('navbar.retroRoulette')}
+            </button>
             <a
               href="https://github.com/elton-lau/laws-of-agile"
               target="_blank"
@@ -84,6 +92,15 @@ const Navbar: React.FC = () => {
           >
             {t('navbar.about')}
           </button>
+          <button
+            onClick={() => {
+              setIsRetroModalOpen(true);
+              setIsMenuOpen(false);
+            }}
+            className="text-2xl font-black tracking-tight text-primary hover:underline transition-colors"
+          >
+            {t('navbar.retroRoulette')}
+          </button>
           
           <a
             href="https://github.com/elton-lau/laws-of-agile"
@@ -95,6 +112,11 @@ const Navbar: React.FC = () => {
           </a>
         </div>
       </div>
+
+      <RetroRouletteModal
+        isOpen={isRetroModalOpen}
+        onClose={() => setIsRetroModalOpen(false)}
+      />
     </>
   );
 };

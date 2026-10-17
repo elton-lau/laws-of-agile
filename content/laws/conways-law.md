@@ -1,9 +1,23 @@
 ---
 id: conways-law
-name: Conway's Law
+title: "Conway's Law"
+name: "Conway's Law"
 icon: hub
 summary: Organizations design systems that mirror their communication structure.
 category: second-way
+axiom: "Organizations design systems that mirror their communication structure."
+pathology: "Siloed team structures cause fragmented, coupled architectures and cross-team friction, leading to codebase decay and slow delivery."
+defenseScript:
+  executive: "If we want a modular, decoupled architecture, we must first structure our teams in stream-aligned, autonomous units rather than functional silos."
+  team: "Architectural boundaries should mirror domain and team ownership to minimize handoffs and friction."
+balancingLaw:
+  id: "brooks-law"
+  name: "Brooks' Law"
+  relationshipNote: "Reorganizing teams dynamically must account for communication overhead and onboarding delays."
+tags:
+  - "org-friction"
+  - "codebase-rot"
+retroPrompt: "Which cross-team dependencies or handoffs slowed down our releases in the past sprint?"
 origin:
   author: Melvin Conway
   context: '"How Do Committees Invent?" (1967).'

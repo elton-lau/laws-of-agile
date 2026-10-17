@@ -1,9 +1,22 @@
 ---
 id: goodharts-law
-name: Goodhart's Law
+title: "Goodhart's Law"
+name: "Goodhart's Law"
 icon: track_changes
 summary: When a measure becomes a target, it ceases to be a good measure.
 category: second-way
+axiom: "When a measure becomes a target, it ceases to be a good measure."
+pathology: "Teams optimize for artificial KPIs (e.g. story points closed, code coverage, lines of code) rather than actual business value, resulting in system gaming and distorted incentives."
+defenseScript:
+  executive: "Tying rewards directly to velocity or output metrics creates incentives to inflate estimates and sacrifice quality. We should evaluate outcomes and customer impact alongside health metrics."
+  team: "Focus on delivering value and working software over artificially hitting metric targets."
+balancingLaw:
+  id: "pareto-principle"
+  name: "Pareto Principle"
+  relationshipNote: "Focus on measuring the 20% of high-leverage outcomes rather than micromanaging overall activity metrics."
+tags:
+  - "metric-gaming"
+retroPrompt: "Are any of our team metrics or OKRs encouraging us to game the system rather than solve real user problems?"
 origin:
   author: Charles Goodhart
   context: '"Problems of Monetary Management" (1975).'

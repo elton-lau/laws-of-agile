@@ -1,9 +1,22 @@
 ---
 id: littles-law
-name: Little's Law
+title: "Little's Law"
+name: "Little's Law"
 icon: timeline
 summary: The average number of items in a system equals the average arrival rate multiplied by the average time in the system.
 category: first-way
+axiom: "Lead time equals Work-In-Progress (WIP) divided by throughput."
+pathology: "Starting new tasks before completing existing ones creates excessive WIP, leading to context switching, long queue times, and delayed delivery."
+defenseScript:
+  executive: "To deliver features faster, we must limit work-in-progress. Multitasking on too many parallel projects increases cycle time for all of them."
+  team: "Stop starting, start finishing. Lower WIP limits directly shorten delivery cycle times."
+balancingLaw:
+  id: "theory-of-constraints"
+  name: "Theory of Constraints"
+  relationshipNote: "Reducing WIP exposes the single bottleneck in the system that actually governs total throughput."
+tags:
+  - "delivery-delays"
+retroPrompt: "What is currently sitting in our work-in-progress queue that we can stop or pause so we can finish critical items faster?"
 origin:
   author: John Little
   context: Proof published in 1961, based on 1954 observations.
